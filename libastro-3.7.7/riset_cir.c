@@ -7,6 +7,7 @@
 
 #include "astro.h"
 
+int obj_cir_calls = 0;
 
 static void e_riset_cir (Now *np, Obj *op, double dis, RiseSet *rp);
 static int find_0alt (double dt, double fstep, double dis, Now *np, Obj *op);
@@ -167,6 +168,8 @@ e_riset_cir (Now *np, Obj *op, double dis, RiseSet *rp)
 	int rise, set;		/* flags to check when we find these events */
 	int i;
 
+        obj_cir_calls = 0;
+
 	dt = DEGSTEP * (1.0/360.0/op->es_n);
 	steps = (int)(1.0/dt);
 	rise = set = 0;
@@ -254,6 +257,7 @@ e_riset_cir (Now *np, Obj *op, double dis, RiseSet *rp)
 	    else
 		rp->rs_flags |= RS_NOSET;
 	}
+        printf("obj_cir_calls: %i\n", obj_cir_calls);
 }
 
 /* given a Now at noon and a dt from np, in hours, for a first approximation

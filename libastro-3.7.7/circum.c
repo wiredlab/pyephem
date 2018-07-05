@@ -40,6 +40,8 @@ static double h_albsize (double H);
 int
 obj_cir (Now *np, Obj *op)
 {
+	obj_cir_calls++;
+
 	op->o_flags &= ~NOCIRCUM;
 	switch (op->o_type) {
 	case BINARYSTAR: return (obj_binary (np, op));

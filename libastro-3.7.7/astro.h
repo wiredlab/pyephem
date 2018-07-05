@@ -13,6 +13,8 @@
 #define	PI		3.141592653589793
 #endif
 
+extern int obj_cir_calls;
+
 /* conversions among hours (of ra), degrees and radians. */
 #define	degrad(x)	((x)*PI/180.)
 #define	raddeg(x)	((x)*180./PI)
